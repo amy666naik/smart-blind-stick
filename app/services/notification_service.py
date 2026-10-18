@@ -10,7 +10,7 @@ from abc import ABC, abstractmethod
 from datetime import datetime, timezone
 import logging
 from typing import Optional, List, Dict, Any
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app.config import get_settings
 
@@ -254,3 +254,4 @@ def get_notification_service() -> BaseNotificationAdapter:
     elif adapter in ("firebase", "fcm"):
         return SimulatedFirebaseAdapter()
     return MockNotificationService()
+
